@@ -4,12 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux'
-import { BrowserRouter,Switch,Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import {configureStore} from '@reduxjs/toolkit'
-
+import animeListReducer from '../src/slices/animeListSlices'
 const store =configureStore({
-  reducer:{},
+  reducer:{
+    animeList:animeListReducer
+  },
 })
+
+//{animeList:[]}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

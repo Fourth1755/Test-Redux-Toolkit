@@ -24,3 +24,8 @@ const animeListSlice = createSlice({
         }
     }
 })
+
+//Action creators
+export const {addToAnimeList,deleteAnimeList} = animeListSlice.actions
+
+export default animeListSlice.reducer
