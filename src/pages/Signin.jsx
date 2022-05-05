@@ -10,13 +10,13 @@ const Signin=()=>{
     //const {loading,error} =useSelector(state=>state.status)
     return(
         <div className="container">
-                <div class="mb-3">
-                    <label class="form-label">Email address</label>
-                    <input type="email" class="form-control" name='email' value={email} onChange={e=>setEmail(e.target.value)}/>
+                <div className="mb-3">
+                    <label className="form-label">Email address</label>
+                    <input type="email" className="form-control" name='email' value={email} onChange={e=>setEmail(e.target.value)}/>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control" name='password' value={password} onChange={e=>setPassword(e.target.value)} />
+                <div className="mb-3">
+                    <label className="form-label">Password</label>
+                    <input type="password" className="form-control" name='password' value={password} onChange={e=>setPassword(e.target.value)} />
                 </div>
                 <button>Submit</button>    
                 {/* {error && <p style={{color:'red',fontSize:'12'}}>{error}</p>} */}

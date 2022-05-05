@@ -1,6 +1,6 @@
 import React from "react";
 import {useSelector,useDispatch} from 'react-redux'
-import {deleteAnimeList} from '../slices/animeListSlices'
+import {deleteAnimeList} from '../store/slices/animeListSlices'
 const AnimeList=()=>{
     const animeList=useSelector(state=>state.animeList)
     const dispatch=useDispatch()
@@ -20,15 +20,13 @@ const AnimeList=()=>{
                 <tbody>
                 {animeList.length===0?
                     <tr>List is empty</tr>:animeList.map(item=>
-                    <div key={item.id}>
-                        <tr>
+                        <tr key={item.id}>
                             <td>{item.id}</td>
                             <td>{item.name}</td>
                             <td>{item.year}</td>
                             <td>{item.quantity}</td>
                             <td><button type="button" className="btn btn-danger" onClick={()=>dispatch(deleteAnimeList(item.id))}>Delete</button></td>
                         </tr>
-                    </div>
                     )}
                 </tbody>
             </table>

@@ -4,7 +4,7 @@ import {useSelector,useDispatch} from 'react-redux'
 
 const Navbar=()=>{
     const animeList =useSelector((state)=>state.animeList)
-    const {user} =useSelector((state)=>state.auth)
+    //const {user} =useSelector((state)=>state.auth)
     const dispatch = useDispatch();
     // function signOut(){
     //     dispatch(setAuth(null))
@@ -23,10 +23,10 @@ const Navbar=()=>{
                         <li className="nav-item">
                             <Link to='/' className="nav-link active" aria-current="page">Home</Link>
                         </li>
-                        {user && <li className="nav-item">
+                        <li className="nav-item">
                             <Link to='/animeList' className="nav-link">Anime List<span>{animeList.reduce((sum,item)=>sum+item.quantity,0)}</span></Link>
                         </li>
-                        }
+                        
                         <li className="nav-item">
                             <Link to='/anime' className="nav-link">Anime</Link>
                         </li>

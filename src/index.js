@@ -4,14 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux'
-import { BrowserRouter } from "react-router-dom";
-import {configureStore} from '@reduxjs/toolkit'
-import animeListReducer from '../src/slices/animeListSlices'
-const store =configureStore({
-  reducer:{
-    animeList:animeListReducer
-  },
-})
+import { BrowserRouter} from "react-router-dom";
+import store from './store/store';
 
 //{animeList:[]}
 
