@@ -6,7 +6,7 @@ const initialState = {
     error:''
 }
 
-const signinAsync = createAsyncThunk('signin', async ({email,password},store)=>{
+export const signinAsync = createAsyncThunk('signin', async ({email,password},store)=>{
     try {
         const user = await signin(email,password)
         return user
@@ -45,6 +45,6 @@ const authSlice = createSlice({
     }
 })
 
-const {signout} = authSlice.actions
+export const {signout} = authSlice.actions
 
 export default authSlice.reducer

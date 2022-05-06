@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {useSelector,useDispatch} from 'react-redux'
 
+import {signout} from '../store/slices/authSlices'
 const Navbar=()=>{
     const animeList =useSelector((state)=>state.animeList)
-    //const {user} =useSelector((state)=>state.auth)
+    const {user} =useSelector((state)=>state.auth)
     const dispatch = useDispatch();
-    // function signOut(){
-    //     dispatch(setAuth(null))
+    function signOut(){
+        dispatch(signout())
     //     dispatch(setList([]))
-    // }
+    }
     return(
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,17 +24,18 @@ const Navbar=()=>{
                         <li className="nav-item">
                             <Link to='/' className="nav-link active" aria-current="page">Home</Link>
                         </li>
+                        {user &&
                         <li className="nav-item">
                             <Link to='/animeList' className="nav-link">Anime List<span>{animeList.reduce((sum,item)=>sum+item.quantity,0)}</span></Link>
                         </li>
-                        
+                        }
                         <li className="nav-item">
                             <Link to='/anime' className="nav-link">Anime</Link>
                         </li>
                         
                         <li className="nav-item">
-                            
-                            <Link to='/signin' className="nav-link">Sign in</Link>
+                            {user ? <button onClick={signOut}>Sign Out</button> :
+                            <Link to='/signin' className="nav-link">Sign in</Link>}
                         </li>
                     </ul>
                     </div>
